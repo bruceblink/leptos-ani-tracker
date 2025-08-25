@@ -47,7 +47,7 @@ RUN apt-get update -y \
   && rm -rf /var/lib/apt/lists/*
 
 # 拷贝编译好的二进制
-COPY --from=builder /app/target/release/leptos-ani /app/
+COPY --from=builder /app/target/release/leptos-ani-tracker /app/
 
 # 拷贝静态资源
 COPY --from=builder /app/target/site /app/site
@@ -64,4 +64,4 @@ ENV LEPTOS_SITE_ROOT="site"
 EXPOSE 8001
 
 # 启动命令
-CMD ["/app/leptos-ani"]
+CMD ["/app/leptos-ani-tracker"]
