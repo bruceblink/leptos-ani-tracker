@@ -4,8 +4,8 @@ use leptos_router::{
     components::{Route, Router, Routes},
     StaticSegment, WildcardSegment,
 };
-use crate::routes::home_page::HomePage;
-use crate::routes::not_found_page::NotFound;
+use crate::views::home_page::HomePage;
+use crate::views::not_found_page::NotFound;
 
 #[component]
 pub fn App() -> impl IntoView {
