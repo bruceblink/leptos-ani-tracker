@@ -1,0 +1,141 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-height);
+  background: var(--header-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+/* 左侧区域：菜单 + 汉堡 */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0; /* 防止缩小 */
+}
+
+/* 右侧区域：搜索栏始终显示 */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0; /* 防止缩小 */
+}
+
+/* 汉堡开关隐藏原生 */
+.nav-toggle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 仅展示汉堡标签 */
+.nav-toggle-label {
+  display: none;
+  font-size: var(--toggle-size);
+  color: var(--link-color);
+  cursor: pointer;
+  user-select: none;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+
+/* 折叠菜单项 */
+.nav-collapse {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-collapse a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-collapse a:hover {
+  color: var(--link-hover);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+/* 主题按钮 */
+.theme-toggle-button {
+  font-size: 1.5rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  color: var(--link-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle-button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+/* 移动端样式 */
+@media (max-width: 720px) {
+  .nav-toggle-label {
+    display: block;
+  }
+
+  .nav-collapse {
+    display: none;
+    position: absolute;
+    top: var(--navbar-height);
+    left: 0;
+    right: 0;
+    background: var(--header-bg);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+    z-index: 999;
+    transition: background 0.3s ease;
+  }
+
+  .nav-toggle:checked + .nav-toggle-label + .nav-collapse {
+    display: flex;
+  }
+
+  .nav-collapse a {
+    width: 100%;
+  }
+
+  .nav-right {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+}
+
+.theme-toggle-button svg {
+  stroke: var(--link-color); /* 使用主题链接颜色 */
+  fill: none; /* 如果不需要填充，设置为 none */
+  transition: stroke 0.3s ease; /* 添加过渡效果 */
+}
+
+.theme-toggle-button:hover svg {
+  stroke: var(--link-hover); /* 悬停时改变颜色 */
+}
