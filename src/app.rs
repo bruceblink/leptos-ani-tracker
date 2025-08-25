@@ -4,7 +4,10 @@ use leptos_router::{
     components::{Route, Router, Routes},
     StaticSegment, WildcardSegment,
 };
+use crate::views::about_page::AboutPage;
+use crate::views::history_page::HistoryPage;
 use crate::views::home_page::HomePage;
+use crate::views::navbar::Navbar;
 use crate::views::not_found_page::NotFound;
 
 #[component]
@@ -19,12 +22,15 @@ pub fn App() -> impl IntoView {
 
         // sets the document title
         <Title text="Welcome to Leptos"/>
-
+        // navigation bar for all pages
+        <Navbar/>
         // content for this welcome page
         <Router>
-            <main>
+            <main class="main">
                 <Routes fallback=move || "Not found.">
                     <Route path=StaticSegment("") view=HomePage/>
+                    <Route path=StaticSegment("/history") view=HistoryPage/>
+                    <Route path=StaticSegment("/about") view=AboutPage/>
                     <Route path=WildcardSegment("any") view=NotFound/>
                 </Routes>
             </main>
