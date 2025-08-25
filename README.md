@@ -1,3 +1,5 @@
+使用下来是,感觉还不如Dioxus好用，稍微复杂一点的页面的实现就非常复杂，完全没有开发效率可言，从开发到上线部署，没有哪一项的体验是好的
+<!--
 # Leptos full-stack app
 A starter template for Leptos applications with server-side rendering.
 
@@ -39,3 +41,4 @@ Finally, run the server binary.
 ## Licensing
 
 This template itself is released under the Unlicense. You should replace the LICENSE for your own application with an appropriate license if you plan to release it publicly.
+-->
